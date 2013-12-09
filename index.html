@@ -24,7 +24,7 @@ $(document).ready(function(){<br/>
 	$(window).scroll(function (event) {<br/>
 	</code></pre>
 	<p>And then we do the magic: switching from position: absolute to position: fixed.</p>
-	<p>If the scroll is between 0 (at the top) and 50px the bar's position is absolute,<br/>while it changes to fixed if the scroll is greater than 50.</p>
+	<p>If the scroll is between 0 and 50px (#bar's top/2), its position is absolute,<br/>while it changes to fixed if the scroll is greater than 50.</p>
 	<pre><code>
 		var y = $(this).scrollTop(); // what the y position of the scroll is
 		if (0 <= y < 50){
@@ -38,6 +38,7 @@ $(document).ready(function(){<br/>
 	</code></pre>
 	<p>That's it. Now you have a really seamless sticky sidebar.<br/>
 	Have fun!<br/>
+	<br/>
 	<span class="created">Created by <a href="http://facebook.com/a.garridob" target="_blank">Alberto Garrido</a>. Code on <a href="https://github.com/agarridob" target="_blank">GitHub</a></span></p>
 </body>
 </html>
