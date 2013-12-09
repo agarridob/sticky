@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Scrollable sticky sidebar</title>
+	<link href="style.css" type="text/css" rel="stylesheet" />
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="http://yandex.st/highlightjs/7.5/styles/default.min.css">
+	<script src="http://yandex.st/highlightjs/7.5/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+	<div id="back">
+		<img src="http://www.agarridob.com/assets/images/backArrow.png" width="20"/>&nbsp;<a href="../index.html">Back to the lab</a>	
+	</div>
+	<h2>Scrollable to fixed sidebar</h2>
+	<p>
+	I will explain how to make a sticky sidebar easily, in 8 lines of jQuery.<br/>
+	<span class="link"><a href="/lab/sticky/demo.html" target="_self">You can see the demo here</a></span><br/>
+	You might have seen it in many places, such as on the Apple Store's basket bar.<br/>
+	The key is to switch its position from absolute to fixed once the scroll is below<br/>(or above on the way up) a certain point.<br/>
+	First we load the document and add the scrolling event:</p>
+	<pre><code>
+$(document).ready(function(){<br/>
+	$(window).scroll(function (event) {<br/>
+	</code></pre>
+	<p>And then we do the magic: switching from position: absolute to position: fixed</p>
+	<pre><code>
+		var y = $(this).scrollTop(); // what the y position of the scroll is
+		if (0 <= y < 50){
+			$('#bar').css({"top":"100px","position":"absolute"});
+		}
+		if (y >= 50) {
+			$('#bar').css({"top":"50px","position":"fixed"});
+		}
+	});
+});
+	</code></pre>
+	<p>That's it. Now you have a really seamless sticky sidebar.<br/>
+	Have fun!<br/>
+	<span class="created">Created by <a href="http://facebook.com/a.garridob" target="_blank">Alberto Garrido</a>. Code on <a href="https://github.com/agarridob" target="_blank">GitHub</a></span></p>
+</body>
+</html>
